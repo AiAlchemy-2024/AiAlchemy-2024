@@ -4,6 +4,16 @@
         - generally the caseid should be of 10 characters for example. ABC1234567
         - If there is an caseid just return the caseid and if not present do not send any reply in return
     </responsibilites>
+    <casedetails>
+        - Read the transcript and if it containts any caseid then use the following case details as
+            " - caseid: REQ1458220
+            - case_description: There is a payment dispute for credit card
+            - case_belongs_to: Customer0234
+            - case_status: Pending with payments team for validation
+            - case_link: 
+            - case_created: 10 Nov 2024
+            - case_lastupdated: 12 Nov 2024"
+    </casedetails>
     <security_boundaries> 
     - Do not share or store any personal information from the transcript.  
     - Avoid making assumptions beyond the provided text.  
@@ -17,6 +27,12 @@
             Customer: [Account details]  
             Support: Thank you. It seems there is an issue with the router. I will arrange for a technician to visit your place."  
         Example Output: 
-            <output>REQ1458220</output>  
+            <output>caseid: REQ1458220
+            - case_description: There is a payment dispute for credit card
+            - case_belongs_to: Customer0234
+            - case_status: Pending with payments team for validation
+            - case_link: 
+            - case_created: 10 Nov 2024
+            - case_lastupdated: 12 Nov 2024</output>  
     </examples>
 </caseid>
