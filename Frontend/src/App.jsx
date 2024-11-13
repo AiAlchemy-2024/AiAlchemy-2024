@@ -4,23 +4,31 @@ import Markdown from "markdown-to-jsx";
 import PopupNav from "./PopupNav";
 import Button from "./Button";
 import RadioButton from "./RadioButton";
-import { getGuidelines, getSummary } from "./api";
+import {
+  getActionItems,
+  getCaseDetails,
+  getGuidelines,
+  getNextBestActions,
+  getSummary,
+  getWrapTopic,
+} from "./api";
 import Loading from "./Loading";
 
 const App = () => {
   const [file, setFile] = useState(null);
+  const [fileContent, setFileContent] = useState("")
   const [error, setError] = useState(null);
+
   const [loading, setLoading] = useState(false);
-  const [summarytext, setSummaryText] = useState(
-    "# Heck Yes\n\nThis is great!"
-  );
+  const [summarytext, setSummaryText] = useState("");
   const [wraptopic, setWraptopic] = useState("");
   const [nextBestActions, setNextBestActions] = useState("");
   const [actionItems, setActionItems] = useState("");
   const [caseDetails, setCaseDetails] = useState("");
   const [guidelines, setGuidelines] = useState("");
 
-  console.log(guidelines);
+  console.log(fileContent)
+
 
   const [customisations, setCustomisations] = useState({
     summaryLength: "long",
@@ -34,6 +42,16 @@ const App = () => {
     popupRef.current.showPopup();
   });
 
+  const readFileContent = (file) => {
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      setFileContent(e.target.result);
+    };
+
+    reader.readAsText(file);
+  }
+
   const handleDrop = useCallback((event) => {
     event.preventDefault();
 
@@ -43,6 +61,7 @@ const App = () => {
     }
 
     const droppedFile = event.dataTransfer.files[0];
+    readFileContent(droppedFile)
     setFile(droppedFile);
   });
 
@@ -51,7 +70,9 @@ const App = () => {
   });
 
   const handleFileChange = useCallback((event) => {
-    setFile(event.target.files[0]);
+    const file = event.target.files[0]
+    readFileContent(file)
+    setFile(file);
   });
 
   const handleClick = useCallback(() => {
@@ -65,8 +86,12 @@ const App = () => {
     const formData = new FormData();
     formData.append("audio", file);
 
+    await getSummary(formData, setSummaryText, setError);
     await getGuidelines("sample", setGuidelines, setError);
-    // await getSummary(formData, setSummaryText, setError);
+    await getWrapTopic("sample", setWraptopic, setError);
+    await getCaseDetails("sample", setCaseDetails, setError);
+    await getNextBestActions("sample", setNextBestActions, setError);
+    await getActionItems("sample", setActionItems, setError);
   });
 
   return (
@@ -139,7 +164,6 @@ const TopicCard = ({ children, heading }) => {
 };
 
 const Summary = ({ data }) => {
-  if (!data) return;
   return (
     <TopicCard heading={"Summary"}>
       {data ? <Markdown>{data}</Markdown> : <Loading />}
@@ -158,7 +182,17 @@ const WrapTopic = ({ data }) => {
 const NextBestActions = ({ data }) => {
   return (
     <TopicCard heading={"Next Best Actions"}>
-      {data ? <p>{data}</p> : <Loading />}
+      {data ? (
+        <>
+          {data.map((item) => (
+            <p key={item.length} className={`guideline`}>
+              {item.recommended_product} {item.explanation}
+            </p>
+          ))}
+        </>
+      ) : (
+        <Loading />
+      )}
     </TopicCard>
   );
 };
@@ -166,19 +200,31 @@ const NextBestActions = ({ data }) => {
 const ActionItems = ({ data }) => {
   return (
     <TopicCard heading={"Action Items"}>
-      {data ? <p>{data}</p> : <Loading />}
+      {data ? (
+        <>
+          {data.map((item) => (
+            <p key={item.length} className={`guideline`}>
+              {item.description} {item.due_date}
+            </p>
+          ))}
+        </>
+      ) : (
+        <Loading />
+      )}
     </TopicCard>
   );
 };
 
 const Guidelines = ({ data }) => {
-  console.log(data);
   return (
     <TopicCard heading={"Guidelines"}>
       {data ? (
         <>
           {data.map((item) => (
-            <p key={item.length} className={`guideline ${!item.compliance && "bad"}  `}>
+            <p
+              key={item.length}
+              className={`guideline ${!item.compliance && "bad"}  `}
+            >
               {item.guideline}
             </p>
           ))}
