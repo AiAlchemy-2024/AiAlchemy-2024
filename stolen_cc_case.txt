@@ -1,0 +1,11 @@
+ Stolen Credit Card Details   
+   
+ Customer:  Someone stole my credit card details and used it.  
+   
+ Agent:  I'm very sorry to hear that. Please don't worry. We'll take immediate action. Can you confirm the last few transactions you did not recognize?  
+   
+ Customer:  Sure, the last three transactions were not made by me. And I have raised a case for the same, caseid - REQ1458220
+   
+ Agent:  Thank you for confirming. I have blocked your card to prevent further unauthorized transactions. We will issue a new card and start an investigation into the fraudulent charges. You will not be held liable for these charges.  
+   
+ Customer:  Thank you for your quick response. 
