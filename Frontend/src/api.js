@@ -22,9 +22,10 @@ export const getGuidelines = async (data, setGuidelines, setError) => {
     const bodyContent = JSON.stringify({
       user_input: data,
     });
-    const respo = await fetch(`${window.location.origin}/guidelines`, {
+    const respo = await fetch(`http://192.168.81.96:8003/guidelines`, {
       method: "POST",
       body: bodyContent,
+      headers:headersList
     });
 
     if (respo.ok) {
