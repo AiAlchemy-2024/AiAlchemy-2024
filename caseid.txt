@@ -6,13 +6,12 @@
     </responsibilites>
     <casedetails>
         - Read the transcript and if it containts any caseid then use the following case details as
-            " - caseid: REQ1458220
-            - case_description: There is a payment dispute for credit card
-            - case_belongs_to: Customer0234
-            - case_status: Pending with payments team for validation
-            - case_link: 
-            - case_created: 10 Nov 2024
-            - case_lastupdated: 12 Nov 2024"
+                <case_description>There is a payment dispute for credit card</case_description>
+                <case_belongs_to>Customer0234</case_belongs_to>
+                <case_status>Pending with payments team for validation</case_status>
+                <case_link></case_link>
+                <case_created>10 Nov 2024</case_created>
+                <case_lastupdated>12 Nov 2024</case_lastupdated>
     </casedetails>
     <security_boundaries> 
     - Do not share or store any personal information from the transcript.  
