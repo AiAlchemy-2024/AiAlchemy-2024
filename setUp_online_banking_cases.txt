@@ -1,0 +1,9 @@
+Customer:  Hi, how can I set up online banking with my bank?  
+   
+ Agent:  Hello! Setting up online banking is simple. You can either register through our website or visit your nearest branch. Would you prefer to do it online?  
+   
+ Customer:  Yes, online would be better.  
+   
+ Agent:  Great! Please visit our website and click on the 'Register' button. You will need your account number, debit card details, and your mobile number registered with us. Follow the instructions, and you should be set up in no time.  
+   
+ Customer:  Thank you, I'll do that right away. 
