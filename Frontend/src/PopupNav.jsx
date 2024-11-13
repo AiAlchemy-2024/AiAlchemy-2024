@@ -1,11 +1,27 @@
-import React, { forwardRef, useImperativeHandle, useState } from "react";
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
 import Button from "./Button";
 
 const PopupNav = forwardRef((props, ref) => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
+  const [customisations, setCustomisations] = useState({
+    summaryLength: "long",
+    profile: "loans",
+    AiAgents: [],
+    customInstructions: "",
+  });
+
+  const inputRef = useRef();
 
   useImperativeHandle(ref, () => ({
+    getCustomisations: () => {
+      return customisations;
+    },
     showPopup: () => {
       setIsOpen(true);
     },
@@ -23,15 +39,19 @@ const PopupNav = forwardRef((props, ref) => {
       label: "Profile",
       options: ["loans", "mortgages"],
     },
+    agents: [
+      "Call summarisation",
+      "Sentiment Analysis",
+      "Case",
+      "Next best Action",
+      "Action items",
+    ],
   };
 
   const onChangeHandler = (key, e) => {
-    props.setCustomisations(prev => ({...prev, [key] : e.target.value}))
+    setCustomisations((prev) => ({ ...prev, [key]: e.target.value }));
   };
-  
-  const cancelClickhandler = () => {
-    setIsOpen(false);
-  };
+
   const saveClickHandler = () => {
     setIsOpen(false);
   };
@@ -40,25 +60,64 @@ const PopupNav = forwardRef((props, ref) => {
 
   return (
     <div className="popup">
-      <Dropdown
-        item={dropdownOptions.summaryLength}
-        onChange={onChangeHandler.bind(this,'summaryLength')}
-      />
-      <Dropdown
-        item={dropdownOptions.profile}
-        onChange={onChangeHandler.bind(this,'profile')}
-      />
-      <div className="popup-buttons-container">
-        <Button
-          variant={"secondary"}
-          label="Cancel"
-          onClick={cancelClickhandler}
+      <div className="sectioned">
+        <div className="section-heading">Response</div>
+        <Dropdown
+          item={dropdownOptions.summaryLength}
+          onChange={onChangeHandler.bind(this, "summaryLength")}
         />
-        <Button label="Save" onClick={saveClickHandler} />
+        <Dropdown
+          item={dropdownOptions.profile}
+          onChange={onChangeHandler.bind(this, "profile")}
+        />
+      </div>
+
+      <div className="sectioned">
+        <div className="section-heading">AI Agents</div>
+        {dropdownOptions.agents.map((item) => (
+          <CheckBox
+            isChecked={customisations.AiAgents.includes(item)}
+            key={item}
+            item={item}
+            onChange={() => {
+              const ind = customisations.AiAgents.indexOf(item);
+              if (ind !== -1) customisations.AiAgents.splice(ind, 1);
+              else customisations.AiAgents.push(item);
+            }}
+          />
+        ))}
+      </div>
+
+      <input
+        value={customisations.customInstructions}
+        onChange={(e) =>
+          setCustomisations((prev) => ({
+            ...prev,
+            customInstructions: e.target.value,
+          }))
+        }
+        className="text-field"
+        type="text"
+        placeholder="Custom Instructions"
+      />
+
+      <div className="popup-buttons-container">
+        <Button label="Close" onClick={saveClickHandler} />
       </div>
     </div>
   );
 });
+
+const CheckBox = ({ item, isChecked, onChange }) => {
+  return (
+    <div>
+      <label>
+        <input type="checkbox" defaultChecked={isChecked} onChange={onChange} />
+        {item}
+      </label>
+    </div>
+  );
+};
 
 const Dropdown = ({ item, onChange }) => {
   return (

@@ -77,6 +77,19 @@ form {
   z-index: 1000;
 }
 
+.popup .sectioned {
+  padding: 6px;
+  background-color: #0057b33f;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.section-heading{
+  font-weight: bold;
+  font: 16px;
+  margin-bottom: 6px;
+}
+
 .mybutton {
   padding: 12px 24px;
   border: none;
@@ -110,7 +123,7 @@ form {
 
 .select-container {
   width: 200px;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 .custom-select {
@@ -127,7 +140,22 @@ form {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-.loading-container{
+.text-field {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin-bottom: 10px;
+}
+
+.text-field:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.loading-container {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -172,4 +200,3 @@ form {
   gap: 10px;
   align-items: center;
 }
-
