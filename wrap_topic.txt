@@ -1,12 +1,10 @@
 <wrap_topic>
     <wrap_topic_objective>
-        Carefully analyze the following customer conversation transcript and extract the primary topic or issue the customer is addressing. Identify the topic from the provided list and provide a 1-5 word summary that captures the main focus of the customer’s query, request, or concern.
+        Carefully analyze the following customer conversation transcript and extract the primary topic or issue the customer is addressing. Identify the topic from the provided list.
     </wrap_topic_objective>
     <wrap_topic_instructions>
         - Focus on identifying the core topic: The main subject or concern raised by the customer in the conversation.
         - Match the identified topic with the list: Once you have determined the main concern, choose the most relevant topic from the provided list of possible topics.
-        - Provide a concise and specific summary that reflects the primary concern or request.
-        - Ensure that the summary is relevant, direct, and clear—avoid unnecessary details or peripheral topics.
     </wrap_topic_instructions>
     <wrap_topic_keyAreasOfFocus>
         - Customer's Intent: What is the customer trying to achieve? Are they seeking help, information, resolution, or making a request? Are they expressing a concern, asking for clarification, or submitting a complaint? Identify the action or response the customer expects from the interaction.
@@ -20,9 +18,7 @@
         - Comments about previous interactions or irrelevant context (e.g., "Thanks for your help last week").
     </wrap_topic_doNotFocusOn>
     <wrap_topic_outputSpecifications>
-        - 1 to 5 words only: Provide a brief summary using as few words as possible without losing the meaning.
         - The identified topic must match one from the provided list.
-        - Be sure to choose words that are easy to understand and would make sense to anyone reading the summary without needing additional context.
         - Avoid overly technical terms unless they are necessary to describe the customer's query accurately.
         - If there are multiple possible issues discussed, focus on the primary concern or the issue most likely to be the customer's main priority.
     </wrap_topic_outputSpecifications>
@@ -46,4 +42,14 @@
         - Online banking login issue
         - Bill payment problem
     </wrap_topic_providedListOfTopics>
+    <examples>  
+        Example Input Transcript:  
+            "Customer: I was not able to complete my transaction last night. I want to file a complaint regarding this. I want to be compensated against my transaction or else please close my account. I will open one with some other reliable bank.  
+            Support: We apologize for the inconvenience. Can you please provide your account details?  
+            Customer: [Account details]  
+            Support: Thank you. We are very sorry to hear about your issue. we will work on the resolution."  
+        Example Output: 
+            <output>Bank transfer issue</output>  
+    </examples>
+
 </wrap_topic>
