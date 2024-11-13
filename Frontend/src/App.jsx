@@ -108,7 +108,7 @@ const App = () => {
         <p>AI Alchemists</p>
       </div>
       <form onSubmit={handleSubmit}>
-        <RadioButton />
+        {/* <RadioButton /> */}
 
         <div
           className="drop-zone"
