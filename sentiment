@@ -60,3 +60,14 @@
         </example>
     </examples>
 </prompt>
+
+
+user input text: 
+User - I was not able to complete my transaction last night. I want to file a complaint regarding this. I want to be compensated afgainst my transaction or else please close my account. I will opemn one with some other reliable bank.
+Agent - We are very sorry to hear about your issue. we will work on the resolution.
+User - I am frustrated. I don't want to hear anything from anyone. Give me 100 euros as compensatory amount. my father was hospitalised. I couldn't get him discharged because of cash and was charged for an extra night.
+Agent - I am working on this. I am checking a few details. I will compensate you for your inconvenience at 50 euros. 
+User - try to understand my situation. I have been penalised. I want 100 euros and not a penny less. 
+Agent - Sure! Sorry for the trouble. We'll release 100 euros to your account. Is there anything else that we can help you with?
+User - No.
+Agent - I am closing this conversation. Thanks!
