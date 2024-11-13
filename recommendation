@@ -6,7 +6,7 @@
     <recommendations>
         <recommendation>
             <condition>
-                If there is any discussion of EVs (electric vehicles), energy conservation, sustainability, environmental impact, digital transformation or similar topics, recommend the Tesla Green Loan.
+                If there is any discussion of EVs (electric vehicles), energy conservation, sustainability, environmental impact, digital transformation or similar topics.
             </condition>
             <recommended_product>
                 Tesla Green Loan
@@ -15,14 +15,14 @@
         
         <recommendation>
             <condition>
-                If there is any mention of online shopping, Amazon, or e-commerce, recommend the Tesla Amazon Credit Card.
+                If there is any mention of online shopping, Amazon, e-commerce or something similar to it.
             </condition>
             <recommended_product>
                 Tesla Amazon Credit Card
             </recommended_product>
         </recommendation>
 
-	<recommendation>
+		<recommendation>
             <condition>
                 If there is no mention of any case, case id or incident related to the conversation.
             </condition>
