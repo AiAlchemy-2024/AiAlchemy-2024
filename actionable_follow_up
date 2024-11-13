@@ -5,7 +5,7 @@
 
     <objective>
         To identify actionable follow-ups, use the following process:
-        <step1>Analyze the conversation between the Agent and the customer to understand the context and details.</step1>
+        <step1>Analyze the conversation between the Agent and the customer.</step1>
         <step2>Identify any pending action items or tasks that need to be followed up on, based on the conversation content.</step2>
         <step3>List any actionable items or reminders identified in the conversation in the specified XML format below.</step3>
     </objective>
