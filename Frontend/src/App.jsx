@@ -198,9 +198,16 @@ const WrapTopic = ({ data }) => {
 const SentimentAnalysis = ({ data }) => {
   return (
     <TopicCard heading={"Sentiment Analysis"}>
-      <div>Sentiment: {data.sentiment}</div>
-      <div>Score :{data.score}</div>
-      <div>Sentiment Summary: {data.sentiment_summary}</div>
+      <div>
+        <span>Sentiment:</span> {data.sentiment}
+      </div>
+      <div>
+        <span>Score :</span>
+        {data.score}
+      </div>
+      <div>
+        <span>Sentiment Summary:</span> {data.sentiment_summary}
+      </div>
     </TopicCard>
   );
 };
@@ -211,12 +218,13 @@ const NextBestActions = ({ data }) => {
       {data ? (
         <>
           {data.map((item) => (
-            <>
-              <div key={item.length}>
-                Recommended Product: {item.recommended_product}
+            <div key={item.length}>
+              <span>Recommended Product:</span> {item.recommended_product}
+              <div>
+                <span>Explanation :</span>
+                {item.explanation}
               </div>
-              <div>Explanation :{item.explanation}</div>
-            </>
+            </div>
           ))}
         </>
       ) : (
@@ -229,13 +237,13 @@ const NextBestActions = ({ data }) => {
 const ActionItems = ({ data }) => {
   return (
     <TopicCard heading={"Action Items"}>
-      <>
+      <ul>
         {data.map((item) => (
-          <div key={item.length}>
-            {item.description} Due date: {item.due_date}
-          </div>
+          <li key={item.length}>
+            {item.description} <span>Due date:</span> {item.due_date}
+          </li>
         ))}
-      </>
+      </ul>
     </TopicCard>
   );
 };
