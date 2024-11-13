@@ -1,0 +1,46 @@
+<wrap_topic>
+    <wrap_topic_objective>
+        Carefully analyze the following customer conversation transcript and extract the primary topic or issue the customer is addressing. Identify the topic from the provided list.
+    </wrap_topic_objective>
+    <wrap_topic_instructions>
+        - Focus on identifying the core topic: The main subject or concern raised by the customer in the conversation.
+        - Match the identified topic with the list: Once you have determined the main concern, choose the most relevant topic from the provided list of possible topics.
+        - Use xml tag <wrap_topic> to put identified topic
+    </wrap_topic_instructions>
+    <wrap_topic_keyAreasOfFocus>
+        - Customer's Intent: What is the customer trying to achieve? Are they seeking help, information, resolution, or making a request? Are they expressing a concern, asking for clarification, or submitting a complaint? Identify the action or response the customer expects from the interaction.
+        - Key Problem or Issue: What is the main problem the customer is facing? Does the customer mention a product, service, or feature specifically? Is the customer having a problem with delivery, account access, payment, technical issue, etc.?
+        - Key Terminology and Phrases: Look for recurring or important terms related to the customer's issue. Identify any action words such as “cancel,” “refund,” “update,” “resolve,” “track,” “problem,” etc. Be mindful of specific product names, service types, or technical terms that could clarify the topic.
+    </wrap_topic_keyAreasOfFocus>
+    <wrap_topic_doNotFocusOn>
+        - Small talk, pleasantries, or greetings
+        - Details unrelated to the main concern, such as background information unless it directly ties to the issue.
+        - Comments about previous interactions or irrelevant context (e.g., "Thanks for your help last week").
+    </wrap_topic_doNotFocusOn>
+    <wrap_topic_outputSpecifications>
+        - 1 to 5 words only: Provide a brief summary using as few words as possible without losing the meaning.
+        - The identified topic must match one from the provided list.
+        - If there are multiple possible issues discussed, focus on the primary concern or the issue most likely to be the customer's main priority.
+    </wrap_topic_outputSpecifications>
+    <wrap_topic_outputFormat>
+        <wrap_topic> The central theme or issue of the customer query, chosen from the provided list.</wrap_text>
+    </wrap_topic_outputFormat>
+    <wrap_topic_providedListOfTopics>
+        - Account balance inquiry
+        - Lost or stolen card
+        - Bank transfer issue
+        - Payment dispute
+        - Overdraft charges
+        - Loan inquiry
+        - Credit card application
+        - Account closing request
+        - Mobile banking issue
+        - Fraud alert
+        - Deposit not credited
+        - Withdrawal issue
+        - Interest rate inquiry
+        - Online banking login issue
+        - Bill payment problem
+        - Others
+    </wrap_topic_providedListOfTopics>
+</wrap_topic>

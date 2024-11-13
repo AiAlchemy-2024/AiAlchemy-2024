@@ -92,12 +92,12 @@ const App = () => {
     setLoading(true);
 
     await getSummary(fileContent, customisations, setSummaryText, setError);
-    await getGuidelines(fileContent, setGuidelines, setError);
-    await getWrapTopic(fileContent, setWraptopic, setError);
-    await getCaseDetails(fileContent, setCaseDetails, setError);
-    await getNextBestActions(fileContent, setNextBestActions, setError);
-    await getActionItems(fileContent, setActionItems, setError);
-    await getSentimentAnalysis(fileContent, setSentimentAnalysis, setError);
+    await getGuidelines(fileContent, customisations, setGuidelines, setError);
+    await getWrapTopic(fileContent, customisations, setWraptopic, setError);
+    await getCaseDetails(fileContent, customisations, setCaseDetails, setError);
+    await getNextBestActions(fileContent, customisations, setNextBestActions, setError);
+    await getActionItems(fileContent, customisations, setActionItems, setError);
+    await getSentimentAnalysis(fileContent, customisations, setSentimentAnalysis, setError);
 
 
     setLoading(false);

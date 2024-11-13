@@ -1,6 +1,6 @@
 const HOST = "http://192.168.81.96:8003";
 
-export const getGuidelines = async (data, setGuidelines, setError) => {
+export const getGuidelines = async (data, customisations, setGuidelines, setError) => {
   // console.log("first");
   // return new Promise((resolve) => {
   //   resolve(
@@ -22,7 +22,7 @@ export const getGuidelines = async (data, setGuidelines, setError) => {
       "Content-Type": "application/json",
     };
     const bodyContent = JSON.stringify({
-      user_input: data,
+      user_input: data, customisations
     });
     const respo = await fetch(`${HOST}/guidelines`, {
       method: "POST",
@@ -39,14 +39,14 @@ export const getGuidelines = async (data, setGuidelines, setError) => {
   }
 };
 
-export const getWrapTopic = async (data, setWrapTopic, setError) => {
+export const getWrapTopic = async (data, customisations, setWrapTopic, setError) => {
   try {
     const headersList = {
       Accept: "*/*",
       "Content-Type": "application/json",
     };
     const bodyContent = JSON.stringify({
-      user_input: data,
+      user_input: data, customisations
     });
     const respo = await fetch(`${HOST}/wrap_topic`, {
       method: "POST",
@@ -63,14 +63,14 @@ export const getWrapTopic = async (data, setWrapTopic, setError) => {
   }
 };
 
-export const getSentimentAnalysis = async (data, setSentimentAnalysis, setError) => {
+export const getSentimentAnalysis = async (data, customisations, setSentimentAnalysis, setError) => {
   try {
     const headersList = {
       Accept: "*/*",
       "Content-Type": "application/json",
     };
     const bodyContent = JSON.stringify({
-      user_input: data,
+      user_input: data, customisations
     });
     const respo = await fetch(`${HOST}/sentiment_analysis`, {
       method: "POST",
@@ -87,14 +87,14 @@ export const getSentimentAnalysis = async (data, setSentimentAnalysis, setError)
   }
 };
 
-export const getCaseDetails = async (data, setCaseDetails, setError) => {
+export const getCaseDetails = async (data, customisations, setCaseDetails, setError) => {
   try {
     const headersList = {
       Accept: "*/*",
       "Content-Type": "application/json",
     };
     const bodyContent = JSON.stringify({
-      user_input: data,
+      user_input: data, customisations
     });
     const respo = await fetch(`${HOST}/caseid`, {
       method: "POST",
@@ -113,7 +113,7 @@ export const getCaseDetails = async (data, setCaseDetails, setError) => {
 };
 
 export const getNextBestActions = async (
-  data,
+  data, customisations,
   setNextBestActions,
   setError
 ) => {
@@ -123,7 +123,7 @@ export const getNextBestActions = async (
       "Content-Type": "application/json",
     };
     const bodyContent = JSON.stringify({
-      user_input: data,
+      user_input: data, customisations
     });
     const respo = await fetch(`${HOST}/recommendation`, {
       method: "POST",
@@ -140,14 +140,14 @@ export const getNextBestActions = async (
   }
 };
 
-export const getActionItems = async (data, setActionItems, setError) => {
+export const getActionItems = async (data, customisations, setActionItems, setError) => {
   try {
     const headersList = {
       Accept: "*/*",
       "Content-Type": "application/json",
     };
     const bodyContent = JSON.stringify({
-      user_input: data,
+      user_input: data, customisations
     });
     const respo = await fetch(`${HOST}/follow_up`, {
       method: "POST",
