@@ -1,0 +1,11 @@
+Customer:  Hi, can you help me with a New Credit Card Application?  
+   
+ Agent:  Sure! Please visit our website and click on the 'Apply Credit Card' button. You will need your account number, debit card details, and your mobile number registered with us. Follow the instructions, and you should be able to register it no time.  
+   
+ Customer:  Thank you for helping with my new credit card application.  
+   
+ Agent:  It was our pleasure to assist you. We're happy to have you as a valued customer. If you have any other questions or need further assistance, feel free to reach out.  
+   
+ Customer:  I will. Thanks again!  
+   
+ Agent:  You're welcome! Have a great day! 
