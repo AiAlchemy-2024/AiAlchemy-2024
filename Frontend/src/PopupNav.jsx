@@ -33,11 +33,11 @@ const PopupNav = forwardRef((props, ref) => {
   const dropdownOptions = {
     summaryLength: {
       label: "Summary Length",
-      options: ["long", "medium", "short"],
+      options: ["long", "short"],
     },
     profile: {
       label: "Profile",
-      options: ["loans", "mortgages"],
+      options: ["Business", "Product Owner", "Technical"],
     },
     agents: [
       "Call summarisation",

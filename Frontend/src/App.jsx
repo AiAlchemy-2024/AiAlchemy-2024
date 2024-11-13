@@ -9,6 +9,7 @@ import {
   getCaseDetails,
   getGuidelines,
   getNextBestActions,
+  getSentimentAnalysis,
   getSummary,
   getWrapTopic,
 } from "./api";
@@ -22,14 +23,14 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [summarytext, setSummaryText] = useState("");
   const [wraptopic, setWraptopic] = useState("");
+  const [sentimentAnalysis, setSentimentAnalysis] = useState("");
+
   const [nextBestActions, setNextBestActions] = useState("");
   const [actionItems, setActionItems] = useState("");
   const [caseDetails, setCaseDetails] = useState("");
   const [guidelines, setGuidelines] = useState("");
 
   console.log(fileContent);
-
-  
 
   const fileInputRef = useRef(null);
   const popupRef = useRef(null);
@@ -50,7 +51,6 @@ const App = () => {
 
   const handleDrop = useCallback((event) => {
     event.preventDefault();
-
 
     if (!["text/plain"].includes(event.dataTransfer.files[0].type)) {
       alert("Only text files are allowed");
@@ -84,8 +84,8 @@ const App = () => {
       return;
     }
 
-    const customisations = popupRef.current.getCustomisations()
-    console.log(customisations)
+    const customisations = popupRef.current.getCustomisations();
+    console.log(customisations);
 
     // const formData = new FormData();
     // formData.append("audio", file);
@@ -94,6 +94,7 @@ const App = () => {
     await getSummary(fileContent, customisations, setSummaryText, setError);
     await getGuidelines(fileContent, setGuidelines, setError);
     await getWrapTopic(fileContent, setWraptopic, setError);
+    await getSentimentAnalysis(fileContent, setSentimentAnalysis, setError)
     await getCaseDetails(fileContent, setCaseDetails, setError);
     await getNextBestActions(fileContent, setNextBestActions, setError);
     await getActionItems(fileContent, setActionItems, setError);
@@ -152,6 +153,7 @@ const App = () => {
           {summarytext && <Summary data={summarytext} />}
           {wraptopic && <WrapTopic data={wraptopic} />}
           {caseDetails && <CaseDetails data={caseDetails} />}
+          {sentimentAnalysis && <SentimentAnalysis data={sentimentAnalysis} />}
         </div>
         <div className="sub-content">
           {guidelines && <Guidelines data={guidelines} />}
@@ -188,7 +190,17 @@ const Summary = ({ data }) => {
 const WrapTopic = ({ data }) => {
   return (
     <TopicCard heading={"Wrap topic"}>
-      <p>{data}</p>
+      <div>{data}</div>
+    </TopicCard>
+  );
+};
+
+const SentimentAnalysis = ({ data }) => {
+  return (
+    <TopicCard heading={"Sentiment Analysis"}>
+      <div>Sentiment: {data.sentiment}</div>
+      <div>Score    :{data.score}</div>
+      <div>Sentiment Summary: {data.sentiment_summary}</div>
     </TopicCard>
   );
 };
@@ -263,7 +275,7 @@ const Guidelines = ({ data }) => {
 const CaseDetails = ({ data }) => {
   return (
     <TopicCard heading={"Case Details"}>
-      <p>{data}</p>
+      <div>{data}</div>
     </TopicCard>
   );
 };

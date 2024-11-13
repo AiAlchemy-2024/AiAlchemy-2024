@@ -57,9 +57,33 @@ export const getWrapTopic = async (data, setWrapTopic, setError) => {
     if (respo.ok) {
       const respojson = await respo.json();
       setWrapTopic(respojson.wrap_topic);
-    } else setError("GUIDELINES ERROR");
+    } else setError("WRAPTOPIC ERROR");
   } catch (error) {
-    setError("GUIDELINES ERROR");
+    setError("WRAPTOPIC ERROR");
+  }
+};
+
+export const getSentimentAnalysis = async (data, setSentimentAnalysis, setError) => {
+  try {
+    const headersList = {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+    };
+    const bodyContent = JSON.stringify({
+      user_input: data,
+    });
+    const respo = await fetch(`${HOST}/wrap_topic`, {
+      method: "POST",
+      body: bodyContent,
+      headers: headersList,
+    });
+
+    if (respo.ok) {
+      const respojson = await respo.json();
+      setSentimentAnalysis(respojson);
+    } else setError("WRAPTOPIC ERROR");
+  } catch (error) {
+    setError("WRAPTOPIC ERROR");
   }
 };
 
@@ -81,9 +105,9 @@ export const getCaseDetails = async (data, setCaseDetails, setError) => {
     if (respo.ok) {
       const respojson = await respo.json();
       setCaseDetails(respojson.caseid);
-    } else setError("GUIDELINES ERROR");
+    } else setError("CASE DETAILS ERROR");
   } catch (error) {
-    setError("GUIDELINES ERROR");
+    setError("CASE DETAILS ERROR");
   }
 };
 
@@ -109,9 +133,9 @@ export const getNextBestActions = async (
     if (respo.ok) {
       const respojson = await respo.json();
       setNextBestActions(respojson);
-    } else setError("GUIDELINES ERROR");
+    } else setError("NEXT BEST ACTIONS ERROR");
   } catch (error) {
-    setError("GUIDELINES ERROR");
+    setError("NEXT BEST ACTIONS ERROR");
   }
 };
 
@@ -133,9 +157,9 @@ export const getActionItems = async (data, setActionItems, setError) => {
     if (respo.ok) {
       const respojson = await respo.json();
       setActionItems(respojson);
-    } else setError("GUIDELINES ERROR");
+    } else setError("Action items ERROR");
   } catch (error) {
-    setError("GUIDELINES ERROR");
+    setError("Action items ERROR");
   }
 };
 
