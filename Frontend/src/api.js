@@ -104,7 +104,8 @@ export const getCaseDetails = async (data, setCaseDetails, setError) => {
 
     if (respo.ok) {
       const respojson = await respo.json();
-      setCaseDetails(respojson.caseid);
+      respojson.caseid=="" ? setCaseDetails("No Case ID"): setCaseDetails(respojson.caseid);
+
     } else setError("CASE DETAILS ERROR");
   } catch (error) {
     setError("CASE DETAILS ERROR");

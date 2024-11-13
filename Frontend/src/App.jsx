@@ -94,10 +94,11 @@ const App = () => {
     await getSummary(fileContent, customisations, setSummaryText, setError);
     await getGuidelines(fileContent, setGuidelines, setError);
     await getWrapTopic(fileContent, setWraptopic, setError);
-    await getSentimentAnalysis(fileContent, setSentimentAnalysis, setError);
     await getCaseDetails(fileContent, setCaseDetails, setError);
     await getNextBestActions(fileContent, setNextBestActions, setError);
     await getActionItems(fileContent, setActionItems, setError);
+    await getSentimentAnalysis(fileContent, setSentimentAnalysis, setError);
+
 
     setLoading(false);
   });
@@ -152,13 +153,15 @@ const App = () => {
         <div className="sub-content">
           {summarytext && <Summary data={summarytext} />}
           {wraptopic && <WrapTopic data={wraptopic} />}
-          {caseDetails && <CaseDetails data={caseDetails} />}
           {sentimentAnalysis && <SentimentAnalysis data={sentimentAnalysis} />}
+
         </div>
         <div className="sub-content">
           {guidelines && <Guidelines data={guidelines} />}
+          {caseDetails && <CaseDetails data={caseDetails} />}
           {nextBestActions && <NextBestActions data={nextBestActions} />}
           {actionItems && <ActionItems data={actionItems} />}
+
         </div>
       </div>
       {loading && (
