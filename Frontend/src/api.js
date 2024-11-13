@@ -1,20 +1,20 @@
 const HOST = "http://192.168.81.96:8003";
 
 export const getGuidelines = async (data, setGuidelines, setError) => {
-    console.log("first");
-    return new Promise((resolve) => {
-      resolve(
-        setTimeout(() => {
-          setGuidelines([
-            {
-              guideline: "Guideline",
-              compliance: 'False',
-              explaination: "explaination",
-            },
-          ]);
-        }, 1000)
-      );
-    });
+  // console.log("first");
+  // return new Promise((resolve) => {
+  //   resolve(
+  //     setTimeout(() => {
+  //       setGuidelines([
+  //         {
+  //           guideline: "Guideline",
+  //           compliance: 'False',
+  //           explaination: "explaination",
+  //         },
+  //       ]);
+  //     }, 1000)
+  //   );
+  // });
 
   try {
     const headersList = {
@@ -40,21 +40,6 @@ export const getGuidelines = async (data, setGuidelines, setError) => {
 };
 
 export const getWrapTopic = async (data, setWrapTopic, setError) => {
-  //   console.log("first");
-  //   return new Promise((resolve) => {
-  //     resolve(
-  //       setTimeout(() => {
-  //         setGuidelines([
-  //           {
-  //             guideline: "guideline",
-  //             complaince: false,
-  //             explaination: "explaination",
-  //           },
-  //         ]);
-  //       }, 1000)
-  //     );
-  //   });
-
   try {
     const headersList = {
       Accept: "*/*",
@@ -79,21 +64,6 @@ export const getWrapTopic = async (data, setWrapTopic, setError) => {
 };
 
 export const getCaseDetails = async (data, setCaseDetails, setError) => {
-  //   console.log("first");
-  //   return new Promise((resolve) => {
-  //     resolve(
-  //       setTimeout(() => {
-  //         setGuidelines([
-  //           {
-  //             guideline: "guideline",
-  //             complaince: false,
-  //             explaination: "explaination",
-  //           },
-  //         ]);
-  //       }, 1000)
-  //     );
-  //   });
-
   try {
     const headersList = {
       Accept: "*/*",
@@ -122,21 +92,6 @@ export const getNextBestActions = async (
   setNextBestActions,
   setError
 ) => {
-  //   console.log("first");
-  //   return new Promise((resolve) => {
-  //     resolve(
-  //       setTimeout(() => {
-  //         setGuidelines([
-  //           {
-  //             guideline: "guideline",
-  //             complaince: false,
-  //             explaination: "explaination",
-  //           },
-  //         ]);
-  //       }, 1000)
-  //     );
-  //   });
-
   try {
     const headersList = {
       Accept: "*/*",
@@ -161,21 +116,6 @@ export const getNextBestActions = async (
 };
 
 export const getActionItems = async (data, setActionItems, setError) => {
-  //   console.log("first");
-  //   return new Promise((resolve) => {
-  //     resolve(
-  //       setTimeout(() => {
-  //         setGuidelines([
-  //           {
-  //             guideline: "guideline",
-  //             complaince: false,
-  //             explaination: "explaination",
-  //           },
-  //         ]);
-  //       }, 1000)
-  //     );
-  //   });
-
   try {
     const headersList = {
       Accept: "*/*",
@@ -199,7 +139,12 @@ export const getActionItems = async (data, setActionItems, setError) => {
   }
 };
 
-export const getSummary = async (formData, setSummaryText, setError) => {
+export const getSummary = async (
+  formData,
+  customisations,
+  setSummaryText,
+  setError
+) => {
   try {
     const headersList = {
       Accept: "*/*",
@@ -208,7 +153,7 @@ export const getSummary = async (formData, setSummaryText, setError) => {
 
     const summaryresponse = await fetch(`${HOST}/generate_summary`, {
       method: "POST",
-      body: formData,
+      body: JSON.stringify({ user_input: formData, customisations }),
       headers: headersList,
     });
 

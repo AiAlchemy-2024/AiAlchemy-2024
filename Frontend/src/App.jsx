@@ -90,7 +90,7 @@ const App = () => {
     // formData.append("audio", file);
     setLoading(true);
 
-    await getSummary(fileContent, setSummaryText, setError);
+    await getSummary(fileContent, customisations, setSummaryText, setError);
     await getGuidelines(fileContent, setGuidelines, setError);
     await getWrapTopic(fileContent, setWraptopic, setError);
     await getCaseDetails(fileContent, setCaseDetails, setError);
