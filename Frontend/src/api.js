@@ -63,7 +63,7 @@ export const getWrapTopic = async (data, setWrapTopic, setError) => {
     const bodyContent = JSON.stringify({
       user_input: data,
     });
-    const respo = await fetch(`${HOST}/guidelines`, {
+    const respo = await fetch(`${HOST}/wrap_topic`, {
       method: "POST",
       body: bodyContent,
       headers: headersList,
@@ -102,7 +102,7 @@ export const getCaseDetails = async (data, setCaseDetails, setError) => {
     const bodyContent = JSON.stringify({
       user_input: data,
     });
-    const respo = await fetch(`${HOST}/guidelines`, {
+    const respo = await fetch(`${HOST}/caseid`, {
       method: "POST",
       body: bodyContent,
       headers: headersList,
@@ -145,7 +145,7 @@ export const getNextBestActions = async (
     const bodyContent = JSON.stringify({
       user_input: data,
     });
-    const respo = await fetch(`${HOST}/guidelines`, {
+    const respo = await fetch(`${HOST}/recommendation`, {
       method: "POST",
       body: bodyContent,
       headers: headersList,
@@ -184,7 +184,7 @@ export const getActionItems = async (data, setActionItems, setError) => {
     const bodyContent = JSON.stringify({
       user_input: data,
     });
-    const respo = await fetch(`${HOST}/guidelines`, {
+    const respo = await fetch(`${HOST}/follow_up`, {
       method: "POST",
       body: bodyContent,
       headers: headersList,
@@ -206,7 +206,7 @@ export const getSummary = async (formData, setSummaryText, setError) => {
       "Content-Type": "application/json",
     };
 
-    const summaryresponse = await fetch("YOUR_API_ENDPOINT", {
+    const summaryresponse = await fetch(`${HOST}/generate_summary`, {
       method: "POST",
       body: formData,
       headers: headersList,
