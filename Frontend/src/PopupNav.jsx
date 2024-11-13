@@ -29,7 +29,6 @@ const PopupNav = forwardRef((props, ref) => {
     props.setCustomisations(prev => ({...prev, [key] : e.target.value}))
   };
   
-
   const cancelClickhandler = () => {
     setIsOpen(false);
   };

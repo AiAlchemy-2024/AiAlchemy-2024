@@ -16,7 +16,7 @@ import Loading from "./Loading";
 
 const App = () => {
   const [file, setFile] = useState(null);
-  const [fileContent, setFileContent] = useState("")
+  const [fileContent, setFileContent] = useState("");
   const [error, setError] = useState(null);
 
   const [loading, setLoading] = useState(false);
@@ -27,8 +27,7 @@ const App = () => {
   const [caseDetails, setCaseDetails] = useState("");
   const [guidelines, setGuidelines] = useState("");
 
-  console.log(fileContent)
-
+  console.log(fileContent);
 
   const [customisations, setCustomisations] = useState({
     summaryLength: "long",
@@ -50,18 +49,18 @@ const App = () => {
     };
 
     reader.readAsText(file);
-  }
+  };
 
   const handleDrop = useCallback((event) => {
     event.preventDefault();
 
     if (!["text/plain"].includes(event.dataTransfer.files[0].type)) {
-      alert("Only Audio and text files are allowed");
+      alert("Only text files are allowed");
       return;
     }
 
     const droppedFile = event.dataTransfer.files[0];
-    readFileContent(droppedFile)
+    readFileContent(droppedFile);
     setFile(droppedFile);
   });
 
@@ -70,8 +69,8 @@ const App = () => {
   });
 
   const handleFileChange = useCallback((event) => {
-    const file = event.target.files[0]
-    readFileContent(file)
+    const file = event.target.files[0];
+    readFileContent(file);
     setFile(file);
   });
 
@@ -81,17 +80,24 @@ const App = () => {
 
   const handleSubmit = useCallback(async (event) => {
     event.preventDefault();
-    if (!file) return;
 
-    const formData = new FormData();
-    formData.append("audio", file);
+    if (!file) {
+      alert("Please select a file");
+      return;
+    }
 
-    await getSummary(formData, setSummaryText, setError);
+    // const formData = new FormData();
+    // formData.append("audio", file);
+    setLoading(true);
+
+    await getSummary(fileContent, setSummaryText, setError);
     await getGuidelines(fileContent, setGuidelines, setError);
     await getWrapTopic(fileContent, setWraptopic, setError);
     await getCaseDetails(fileContent, setCaseDetails, setError);
     await getNextBestActions(fileContent, setNextBestActions, setError);
     await getActionItems(fileContent, setActionItems, setError);
+
+    setLoading(false);
   });
 
   return (
@@ -140,16 +146,23 @@ const App = () => {
           <Button type={"submit"} label={"Generate"} />
         </div>
       </form>
-      <div className="content-wrapper">
-        <div className="content-section">
-          <Summary data={summarytext} />
-          <WrapTopic data={wraptopic} />
-          <CaseDetails data={caseDetails} />
-          <Guidelines data={guidelines} />
-          <NextBestActions data={nextBestActions} />
-          <ActionItems data={actionItems} />
+      <div className="content-section">
+        <div className="sub-content">
+          {summarytext && <Summary data={summarytext} />}
+          {wraptopic && <WrapTopic data={wraptopic} />}
+          {caseDetails && <CaseDetails data={caseDetails} />}
+        </div>
+        <div className="sub-content">
+          {guidelines && <Guidelines data={guidelines} />}
+          {nextBestActions && <NextBestActions data={nextBestActions} />}
+          {actionItems && <ActionItems data={actionItems} />}
         </div>
       </div>
+      {loading && (
+        <div className="loading-container">
+          <Loading />
+        </div>
+      )}
     </div>
   );
 };
@@ -166,7 +179,7 @@ const TopicCard = ({ children, heading }) => {
 const Summary = ({ data }) => {
   return (
     <TopicCard heading={"Summary"}>
-      {data ? <Markdown>{data}</Markdown> : <Loading />}
+      <Markdown>{data}</Markdown>
     </TopicCard>
   );
 };
@@ -174,7 +187,7 @@ const Summary = ({ data }) => {
 const WrapTopic = ({ data }) => {
   return (
     <TopicCard heading={"Wrap topic"}>
-      {data ? <p>{data}</p> : <Loading />}
+      <p>{data}</p>
     </TopicCard>
   );
 };
@@ -185,7 +198,7 @@ const NextBestActions = ({ data }) => {
       {data ? (
         <>
           {data.map((item) => (
-            <p key={item.length} className={`guideline`}>
+            <p key={item.length}>
               {item.recommended_product} {item.explanation}
             </p>
           ))}
@@ -200,17 +213,13 @@ const NextBestActions = ({ data }) => {
 const ActionItems = ({ data }) => {
   return (
     <TopicCard heading={"Action Items"}>
-      {data ? (
-        <>
-          {data.map((item) => (
-            <p key={item.length} className={`guideline`}>
-              {item.description} {item.due_date}
-            </p>
-          ))}
-        </>
-      ) : (
-        <Loading />
-      )}
+      <>
+        {data.map((item) => (
+          <p key={item.length}>
+            {item.description} {item.due_date}
+          </p>
+        ))}
+      </>
     </TopicCard>
   );
 };
@@ -218,20 +227,34 @@ const ActionItems = ({ data }) => {
 const Guidelines = ({ data }) => {
   return (
     <TopicCard heading={"Guidelines"}>
-      {data ? (
-        <>
-          {data.map((item) => (
-            <p
-              key={item.length}
-              className={`guideline ${!item.compliance && "bad"}  `}
-            >
-              {item.guideline}
-            </p>
-          ))}
-        </>
-      ) : (
-        <Loading />
-      )}
+      <>
+        {data.map((item) => (
+          <div className="guideline-item">
+            {item.compliance === "True" ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#0aa51f"
+              >
+                <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#ca3737"
+              >
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+              </svg>
+            )}
+            <div key={item.length}>{item.guideline}</div>
+          </div>
+        ))}
+      </>
     </TopicCard>
   );
 };
@@ -239,7 +262,7 @@ const Guidelines = ({ data }) => {
 const CaseDetails = ({ data }) => {
   return (
     <TopicCard heading={"Case Details"}>
-      {data ? <p>{data}</p> : <Loading />}
+      <p>{data}</p>
     </TopicCard>
   );
 };

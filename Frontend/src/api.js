@@ -1,20 +1,20 @@
 const HOST = "http://192.168.81.96:8003";
 
 export const getGuidelines = async (data, setGuidelines, setError) => {
-  //   console.log("first");
-  //   return new Promise((resolve) => {
-  //     resolve(
-  //       setTimeout(() => {
-  //         setGuidelines([
-  //           {
-  //             guideline: "guideline",
-  //             complaince: false,
-  //             explaination: "explaination",
-  //           },
-  //         ]);
-  //       }, 1000)
-  //     );
-  //   });
+    console.log("first");
+    return new Promise((resolve) => {
+      resolve(
+        setTimeout(() => {
+          setGuidelines([
+            {
+              guideline: "Guideline",
+              compliance: 'False',
+              explaination: "explaination",
+            },
+          ]);
+        }, 1000)
+      );
+    });
 
   try {
     const headersList = {
