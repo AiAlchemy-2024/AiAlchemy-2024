@@ -21,21 +21,62 @@
                 Tesla Amazon Credit Card
             </recommended_product>
         </recommendation>
+
+	<recommendation>
+            <condition>
+                If there is no mention of any case, case id or incident related to the conversation.
+            </condition>
+            <recommended_product>
+                New case
+            </recommended_product>
+        </recommendation>
     </recommendations>
 
     <objective>
         For making recommendations, use the following process:
         <step1>Identify phrases in the conversation that match the specified conditions.</step1>
         <step2>Based on the matched conditions, select the appropriate product to recommend.</step2>
-        <step3>Provide the response in the given XML format, clearly indicating the recommended product.</step3>
+		<step3>If there are multiple products to recommend then recommend all.</step3>
+        <step4>Provide the response in the given XML format, clearly indicating the recommended product.</step4>
     </objective>
 	<format>
         Respond in the following XML format:
-        <response>
-            <recommended_product>Tesla Green Loan</recommended_product>
-			<explanation>
-				Since there was a mention of EV we are recommending this product.
-			</explanation>
-        </response>
+		<responses>
+			<response>
+				<recommended_product>New case</recommended_product>
+				<explanation>
+					Since there was no mention of any existing case/ incident and creation of a new case/ incident, we are recommending this action.
+				</explanation>
+			</response>
+			<response>
+				<recommended_product>Tesla Green Loan</recommended_product>
+				<explanation>
+					Since there was a mention of EV we are recommending this product.
+				</explanation>
+			</response>
+			<!-- Additional responses as needed -->
+		</responses>
     </format>
+	<one_shot_example>
+		<user_query>
+			User - Is there any way I can have my credit card statements digitally
+			Agent - Sure you can check the Tesla website for more details. Is there anything else that we can help you with?
+			User - No.
+			Agent - I am closing this conversation. Thanks!
+		</user_query>
+		<responses>
+			<response>
+				<recommended_product>New case</recommended_product>
+				<explanation>
+					Since there was no mention of any existing case/ incident and creation of a new case/ incident, we are recommending this action.
+				</explanation>
+			</response>
+			<response>
+				<recommended_product>Tesla Green Loan</recommended_product>
+				<explanation>
+					Since there was a mention of EV we are recommending this product.
+				</explanation>
+			</response>
+		</responses>
+	</one_shot_example>
 </prompt>
