@@ -5,12 +5,13 @@
 
     <objective>
 		For sentiment analysis, use the following process:
-        <step1>Identify the main topics, keywords, and phrases within the title and description.</step1>
-        <step2>Determine the emotional tone associated with each topic, keyword, or phrase (positive, negative, or neutral).</step2>
+        <step1>Identify the main topics, keywords, and phrases within the title and description (don't display this as output).</step1>
+        <step2>Determine the emotional tone associated with each topic, keyword, or phrase (positive, negative, or neutral)(don't display this as output).</step2>
         <step3>Consider the context of the issue (e.g., a fraud or dispute might carry a more negative sentiment than a proactive credit card limit enhancement).</step3>
         <step4>Assign an initial sentiment score based on the overall emotional tone and context.</step4>
         <step5>Reflect on the initial score and adjust it if necessary, taking into account factors such as the severity of the issue, language used, and potential biases.</step5>
-        <step6>Provide a brief explanation of the reasoning behind the final sentiment score.</step6>
+        <step6>Provide a response which contains final sentiment score of the customer with a brief summary within 50-60 words of the reasoning behind the final sentiment score.</step6>
+		<step7>Use xml tag to separate the sentiment, score and summary</step7>
     </objective>
 
     <scoring_guide>
@@ -61,7 +62,7 @@
     </examples>
 </prompt>
 
-
+"Negative transcipt"
 user input text: 
 User - I was not able to complete my transaction last night. I want to file a complaint regarding this. I want to be compensated afgainst my transaction or else please close my account. I will opemn one with some other reliable bank.
 Agent - We are very sorry to hear about your issue. we will work on the resolution.
