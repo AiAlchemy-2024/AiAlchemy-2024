@@ -1,63 +1,90 @@
-**Objective:**  
-Carefully analyze the following customer conversation transcript and extract the **primary topic or issue** the customer is addressing.  
-**Identify the topic from the provided list** and provide a **1-5 word summary** that captures the **main focus** of the customer’s query, request, or concern.
-
-**Instructions:**
-- **Focus on identifying the core topic**: The main subject or concern raised by the customer in the conversation.
-- **Match the identified topic with the list**: Once you have determined the main concern, choose the most relevant topic from the provided list of possible topics.
-- **Provide a concise and specific summary** that reflects the **primary concern** or **request**.
-- Ensure that the summary is **relevant**, **direct**, and **clear**—avoid unnecessary details or peripheral topics.
-
-**Key Areas of Focus:**
-  - **Customer's Intent:**  
-    - What is the **customer trying to achieve**?  
-    - Are they seeking help, information, resolution, or making a request?  
-    - Are they expressing a concern, asking for clarification, or submitting a complaint?  
-    - Identify the **action** or **response** the customer expects from the interaction.
-  - **Key Problem or Issue:**  
-    - What is the **main problem** the customer is facing?  
-    - Does the customer mention a **product**, **service**, or **feature** specifically?  
-    - Is the customer having a problem with **delivery**, **account access**, **payment**, **technical issue**, etc.?
-  - **Tone and Urgency:**  
-    - Does the customer display **urgency** (e.g., "I need help ASAP") or is the query more casual?  
-    - Is there a sense of **frustration**, **confusion**, or **satisfaction**?
-  - **Key Terminology and Phrases:**  
-    - Look for recurring or **important terms** related to the customer’s issue.  
-    - Identify any **action words** such as “cancel,” “refund,” “update,” “resolve,” “track,” “problem,” etc.  
-    - Be mindful of specific **product names**, **service types**, or **technical terms** that could clarify the topic.
-
-**Do not focus on:**
-  - Small talk, pleasantries, or greetings.
-  - Details unrelated to the main concern, such as background information unless it directly ties to the issue.
-  - Comments about previous interactions or irrelevant context (e.g., "Thanks for your help last week").
-
-**Important Specifications for the Output:**
-  - **1-5 words only**: Provide a **brief summary** using as few words as possible without losing the meaning.  
-    - Example: “Billing issue,” “Product return,” “Account access,” “Order delay.”
-  - The **identified topic must match one from the provided list**.
-  - Be sure to choose words that are **easy to understand** and would make sense to anyone reading the summary without needing additional context.  
-  - Avoid overly technical terms unless they are necessary to describe the customer's query accurately.
-  - If there are **multiple possible issues** discussed, focus on the **primary concern** or the issue most likely to be the customer’s main priority.
-
-**Output Format:**  
-Your output should include the following three parts:
-1. **Main Topic (1-5 words)**: The central theme or issue of the customer query, chosen from the provided list.
-2. **Customer Query**: The full text of the customer’s query or concern.
-3. **Key Areas of Focus**: A brief summary (1-2 sentences) explaining the reasoning behind the topic choice, highlighting the critical aspects or phrases that led to the identification of the main topic.
-
-**Provided List of Topics:**  
-Account balance inquiry
-Lost or stolen card
-Bank transfer issue
-Payment dispute
-Overdraft charges
-Loan inquiry
-Credit card application
-Account closing request
-Mobile banking issue
-Fraud alert
-Deposit not credited
-Withdrawal issue
-Interest rate inquiry
-Online banking login issue
-Bill payment problem
+<task>
+    <objective>
+        Carefully analyze the following customer conversation transcript and extract the primary topic or issue the customer is addressing. Identify the topic from the provided list and provide a 1-5 word summary that captures the main focus of the customer’s query, request, or concern.
+    </objective>
+    <instructions>
+        <instruction>
+            Focus on identifying the core topic: The main subject or concern raised by the customer in the conversation.
+        </instruction>
+        <instruction>
+            Match the identified topic with the list: Once you have determined the main concern, choose the most relevant topic from the provided list of possible topics.
+        </instruction>
+        <instruction>
+            Provide a concise and specific summary that reflects the primary concern or request.
+        </instruction>
+        <instruction>
+            Ensure that the summary is relevant, direct, and clear—avoid unnecessary details or peripheral topics.
+        </instruction>
+    </instructions>
+    <keyAreasOfFocus>
+        <area>
+            <title>Customer's Intent</title>
+            <description>
+                What is the customer trying to achieve? Are they seeking help, information, resolution, or making a request? Are they expressing a concern, asking for clarification, or submitting a complaint? Identify the action or response the customer expects from the interaction.
+            </description>
+        </area>
+        <area>
+            <title>Key Problem or Issue</title>
+            <description>
+                What is the main problem the customer is facing? Does the customer mention a product, service, or feature specifically? Is the customer having a problem with delivery, account access, payment, technical issue, etc.?
+            </description>
+        </area>
+        <area>
+            <title>Tone and Urgency</title>
+            <description>
+                Does the customer display urgency (e.g., "I need help ASAP") or is the query more casual? Is there a sense of frustration, confusion, or satisfaction?
+            </description>
+        </area>
+        <area>
+            <title>Key Terminology and Phrases</title>
+            <description>
+                Look for recurring or important terms related to the customer’s issue. Identify any action words such as “cancel,” “refund,” “update,” “resolve,” “track,” “problem,” etc. Be mindful of specific product names, service types, or technical terms that could clarify the topic.
+            </description>
+        </area>
+    </keyAreasOfFocus>
+    <doNotFocusOn>
+        <point>Small talk, pleasantries, or greetings.</point>
+        <point>Details unrelated to the main concern, such as background information unless it directly ties to the issue.</point>
+        <point>Comments about previous interactions or irrelevant context (e.g., "Thanks for your help last week").</point>
+    </doNotFocusOn>
+    <outputSpecifications>
+        <specification>
+            1-5 words only: Provide a brief summary using as few words as possible without losing the meaning.
+        </specification>
+        <specification>
+            The identified topic must match one from the provided list.
+        </specification>
+        <specification>
+            Be sure to choose words that are easy to understand and would make sense to anyone reading the summary without needing additional context.
+        </specification>
+        <specification>
+            Avoid overly technical terms unless they are necessary to describe the customer's query accurately.
+        </specification>
+        <specification>
+            If there are multiple possible issues discussed, focus on the primary concern or the issue most likely to be the customer’s main priority.
+        </specification>
+    </outputSpecifications>
+    <outputFormat>
+        <part>
+            <name>Wrap Topic</name>
+            <description>The central theme or issue of the customer query, chosen from the provided list.</description>
+        </part>
+    </outputFormat>
+    <providedListOfTopics>
+        <topic>Account balance inquiry</topic>
+        <topic>Lost or stolen card</topic>
+        <topic>Bank transfer issue</topic>
+        <topic>Payment dispute</topic>
+        <topic>Overdraft charges</topic>
+        <topic>Loan inquiry</topic>
+        <topic>Credit card application</topic>
+        <topic>Account closing request</topic>
+        <topic>Mobile banking issue</topic>
+        <topic>Fraud alert</topic>
+        <topic>Deposit not credited</topic>
+        <topic>Withdrawal issue</topic>
+        <topic>Interest rate inquiry</topic>
+        <topic>Online banking login issue</topic>
+        <topic>Bill payment problem</topic>
+    </providedListOfTopics>
+</task>
