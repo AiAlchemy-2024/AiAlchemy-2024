@@ -94,7 +94,7 @@ const App = () => {
     await getSummary(fileContent, customisations, setSummaryText, setError);
     await getGuidelines(fileContent, setGuidelines, setError);
     await getWrapTopic(fileContent, setWraptopic, setError);
-    await getSentimentAnalysis(fileContent, setSentimentAnalysis, setError)
+    await getSentimentAnalysis(fileContent, setSentimentAnalysis, setError);
     await getCaseDetails(fileContent, setCaseDetails, setError);
     await getNextBestActions(fileContent, setNextBestActions, setError);
     await getActionItems(fileContent, setActionItems, setError);
@@ -199,7 +199,7 @@ const SentimentAnalysis = ({ data }) => {
   return (
     <TopicCard heading={"Sentiment Analysis"}>
       <div>Sentiment: {data.sentiment}</div>
-      <div>Score    :{data.score}</div>
+      <div>Score :{data.score}</div>
       <div>Sentiment Summary: {data.sentiment_summary}</div>
     </TopicCard>
   );
@@ -211,9 +211,12 @@ const NextBestActions = ({ data }) => {
       {data ? (
         <>
           {data.map((item) => (
-            <p key={item.length}>
-              {item.recommended_product} {item.explanation}
-            </p>
+            <>
+              <div key={item.length}>
+                Recommended Product: {item.recommended_product}
+              </div>
+              <div>Explanation :{item.explanation}</div>
+            </>
           ))}
         </>
       ) : (
@@ -228,9 +231,9 @@ const ActionItems = ({ data }) => {
     <TopicCard heading={"Action Items"}>
       <>
         {data.map((item) => (
-          <p key={item.length}>
-            {item.description} {item.due_date}
-          </p>
+          <div key={item.length}>
+            {item.description} Due date: {item.due_date}
+          </div>
         ))}
       </>
     </TopicCard>

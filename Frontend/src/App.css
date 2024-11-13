@@ -179,6 +179,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 50%;
 }
 
 .topic-card {
@@ -193,6 +194,10 @@ form {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+span{
+  font-weight: bold;
 }
 
 .guideline-item {

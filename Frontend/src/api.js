@@ -72,7 +72,7 @@ export const getSentimentAnalysis = async (data, setSentimentAnalysis, setError)
     const bodyContent = JSON.stringify({
       user_input: data,
     });
-    const respo = await fetch(`${HOST}/wrap_topic`, {
+    const respo = await fetch(`${HOST}/sentiment_analysis`, {
       method: "POST",
       body: bodyContent,
       headers: headersList,
