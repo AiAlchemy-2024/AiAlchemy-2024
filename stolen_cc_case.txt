@@ -9,3 +9,4 @@
  Agent:  Thank you for confirming. I have blocked your card to prevent further unauthorized transactions. We will issue a new card and start an investigation into the fraudulent charges. You will not be held liable for these charges.  
    
  Customer:  Thank you for your quick response. 
+Agent: Also for your confirmation we will be providing you with an email once the investigation is closed and we are up with a resolution.
