@@ -87,11 +87,11 @@ const App = () => {
     formData.append("audio", file);
 
     await getSummary(formData, setSummaryText, setError);
-    await getGuidelines("sample", setGuidelines, setError);
-    await getWrapTopic("sample", setWraptopic, setError);
-    await getCaseDetails("sample", setCaseDetails, setError);
-    await getNextBestActions("sample", setNextBestActions, setError);
-    await getActionItems("sample", setActionItems, setError);
+    await getGuidelines(fileContent, setGuidelines, setError);
+    await getWrapTopic(fileContent, setWraptopic, setError);
+    await getCaseDetails(fileContent, setCaseDetails, setError);
+    await getNextBestActions(fileContent, setNextBestActions, setError);
+    await getActionItems(fileContent, setActionItems, setError);
   });
 
   return (
