@@ -1,0 +1,39 @@
+Customer:  Hi, I was trying to apply for a loan online, but I never received the OTP needed to proceed. Can you help me with this issue?  
+Agent:  Hello! I’m really sorry to hear about the trouble you’ve faced. I’d be happy to assist you. Could you please provide me with your account number and the phone number you used for the application?  
+Customer:  Sure, my account number is 123456789, and the phone number I used is 9876543210.  
+   
+ Agent:  Thank you for the details. Let me check your account and application status. This will just take a moment.  
+   
+ Customer:  Okay, thank you.  
+   
+ Agent:  I’ve checked your details, and it seems there might have been a technical issue with our system. I’m going to resend the OTP to your registered phone number. Can you please confirm if you receive it now?  
+   
+ Customer:  Alright, I’ll wait for it.  
+   
+ (After a few moments)   
+   
+ Customer:  I still haven’t received the OTP. What should I do now?  
+   
+ Agent:  I apologize for the inconvenience. I will escalate this issue to our technical team. Meanwhile, could you please try restarting your phone and make sure you have a stable network connection? Sometimes this helps in receiving the OTP.  
+   
+ Customer:  I’ve already done that, but I’ll try again.  
+   
+ (After a few moments)   
+   
+ Customer:  I restarted my phone, but I still didn’t get the OTP.  
+   
+ Agent:  I’m really sorry for the ongoing issue. I will have our technical team look into this immediately and provide you with a resolution as soon as possible. Can I have your email address so we can keep you updated on the progress?  
+   
+ Customer:  Sure, my email address is customer@example.com.  
+   
+ Agent:  Thank you. We will keep you informed via email. In the meantime, if you have any other questions or need further assistance, please don’t hesitate to reach out.  
+   
+ Customer:  Alright, thank you for your help. I hope this gets resolved soon.  
+   
+ Agent:  You’re welcome. We’ll do our best to resolve this quickly. Have a great day!  
+   
+ Customer:  Thanks, you too.  
+   
+---  
+   
+I hope this helps! If you need any modifications or additional details, feel free to ask.
