@@ -1,0 +1,12 @@
+Loan Policy suggestions
+   
+ Customer: I am thinking of buying a new car and want to avail a loan for the same.
+   
+ Agent: Congratulations on your new car! I will help you with the loan policies.
+   
+ Customer:  Please suggest me best loan policies. Similar case has been raised in the past. Please refer Case ID - REQ12345678 for previous recommendations.
+   
+ Agent:  We have policy 1 for cars with diesel engines and have a special policy for electronic cars. The government is giving out subsidies for electric vehicles at the moment.
+   
+ Customer:  Thank you for your quick response. 
+Agent: Also for your confirmation we will be providing you with an email with all the loan policy suggestions.
